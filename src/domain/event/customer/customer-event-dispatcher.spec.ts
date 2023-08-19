@@ -1,15 +1,15 @@
 import { Sequelize } from "sequelize-typescript"
+import EventDispatcher from "../../@shared/event/event-dispatcher";
+import SendConsoleWhenCustomerIsCreated1Handler from "../../customer/event/handler/send-console-when-customer-is-created-1.handler";
+import SendConsoleWhenCustomerIsCreated2Handler from "../../customer/event/handler/send-console-when-customer-is-created-2.handler";
+import Customer from "../../customer/entity/customer";
+import Address from "../../customer/value-object/address";
+import CustomerCreatedEvent from "../../customer/event/customer-created.event";
+import SendConsoleWhenAddressIsChangedHandler from "../../customer/event/handler/send-console-when-address-is-changed.handler";
+import AddressChangedEvent from "../../customer/event/address-changed.event";
+import CustomerModel from "../../../infrastructure/customer/repository/sequelize/customer.model";
+import CustomerRepository from "../../../infrastructure/customer/repository/sequelize/customer.repository";
 
-import CustomerCreatedEvent from "./customer-created.event"
-import SendConsoleWhenCustomerIsCreated1Handler from "./handler/send-console-when-customer-is-created-1.handler"
-import SendConsoleWhenCustomerIsCreated2Handler from "./handler/send-console-when-customer-is-created-2.handler"
-import SendConsoleWhenAddressIsChangedHandler from "./handler/send-console-when-address-is-changed.handler"
-import AddressChangedEvent from "./address-changed.event"
-import EventDispatcher from "../../@shared/event/event-dispatcher"
-import Customer from "../entity/customer"
-import Address from "../value-object/address"
-import CustomerModel from "../../../infrastructure/customer/repository/sequelize/customer.model"
-import CustomerRepository from "../../../infrastructure/customer/repository/sequelize/customer.repository"
 
 describe("Customer Event Dispatcher", () => {
   let sequelize: Sequelize;
