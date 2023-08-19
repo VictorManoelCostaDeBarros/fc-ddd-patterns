@@ -1,14 +1,15 @@
 import { Sequelize } from "sequelize-typescript"
 import CustomerRepository from "../../../infrastructure/repository/customer.repository"
-import Address from "../../entity/address"
-import Customer from "../../entity/customer"
-import EventDispatcher from "../@shared/event-dispatcher"
+
 import CustomerCreatedEvent from "./customer-created.event"
 import SendConsoleWhenCustomerIsCreated1Handler from "./handler/send-console-when-customer-is-created-1.handler"
 import SendConsoleWhenCustomerIsCreated2Handler from "./handler/send-console-when-customer-is-created-2.handler"
 import CustomerModel from "../../../infrastructure/db/sequelize/model/customer/customer.model"
 import SendConsoleWhenAddressIsChangedHandler from "./handler/send-console-when-address-is-changed.handler"
 import AddressChangedEvent from "./address-changed.event"
+import EventDispatcher from "../../@shared/event/event-dispatcher"
+import Customer from "../entity/customer"
+import Address from "../value-object/address"
 
 describe("Customer Event Dispatcher", () => {
   let sequelize: Sequelize;
